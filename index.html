@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidyutha S.P | Computer Science Engineering Student</title>
+  <meta name="description" content="Personal portfolio of Vidyutha S.P, a 2nd-year B.E Computer Science Engineering student at Sathyabama Institute of Science & Technology, Chennai. Exploring software, AI, and emerging technologies.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-3" aria-hidden="true"></div>
+
+  <!-- Interactive Particle Constellation Canvas -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="app-wrapper">
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="#hero" class="nav-brand" aria-label="Vidyutha S.P Home">
+          <div class="brand-badge">V</div>
+          <div class="brand-text">
+            <span class="brand-name">Vidyutha S.P</span>
+            <span class="brand-role mono">CSE Undergrad</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#journey" class="nav-link">Journey</a>
+          <a href="#vision" class="nav-link">Vision</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#contact" class="btn-nav">Let's Connect</a>
+          <button class="mobile-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div class="mobile-menu" aria-label="Mobile Navigation">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#journey" class="nav-link">Journey</a>
+      <a href="#vision" class="nav-link">Vision</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero-section">
+        <div class="container hero-wrapper">
+          <div class="hero-content">
+            <div class="hero-status-pill">
+              <span class="pulse-dot"></span>
+              <span>2nd Year B.E CSE &bull; Actively Learning & Building</span>
+            </div>
+
+            <p class="hero-name-label">Hello, I am</p>
+            <h1 class="hero-name"><span class="gradient-text">Vidyutha S.P</span></h1>
+
+            <h2 class="hero-headline">Building my way into the world of technology.</h2>
+
+            <p class="hero-subtitle">
+              Computer Science Engineering student exploring software, AI, data and emerging technologies &mdash; one project at a time.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                View My Projects
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                Let's Connect
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </a>
+            </div>
+
+            <div class="hero-socials">
+              <span class="social-label">Find me on:</span>
+              <a href="https://www.linkedin.com/in/vidyutha?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Vidyutha's LinkedIn Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Vidyutha's GitHub Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+              <a href="mailto:vidyutha09@gmail.com" class="social-icon-link" aria-label="Send Email to Vidyutha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Futuristic Visual Preview Card -->
+          <div class="hero-visual">
+            <div class="futuristic-card">
+              <div class="futuristic-card-header">
+                <div class="window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="tech-stamp">student.config.json</div>
+              </div>
+
+              <div class="code-snippet">
+                <div><span class="code-keyword">const</span> <span class="code-fn">undergrad</span> = {</div>
+                <div style="padding-left: 16px;"><span class="code-prop">name</span>: <span class="code-str">"Vidyutha S.P"</span>,</div>
+                <div style="padding-left: 16px;"><span class="code-prop">institution</span>: <span class="code-str">"Sathyabama IST"</span>,</div>
+                <div style="padding-left: 16px;"><span class="code-prop">degree</span>: <span class="code-str">"B.E Computer Science"</span>,</div>
+                <div style="padding-left: 16px;"><span class="code-prop">stage</span>: <span class="code-str">"2nd Year (2025-2029)"</span>,</div>
+                <div style="padding-left: 16px;"><span class="code-prop">mindset</span>: <span class="code-str">"Learn &bull; Build &bull; Lead"</span></div>
+                <div>};</div>
+                <div class="code-comment">// Exploring tech with curiosity &amp; grit</div>
+              </div>
+
+              <div class="card-metrics">
+                <div class="metric-item">
+                  <div class="metric-value">Chennai</div>
+                  <div class="metric-label">Location (Tamil Nadu)</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">2nd Year</div>
+                  <div class="metric-label">B.E CSE Undergrad</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subtle Floating Accents -->
+            <div class="floating-badge floating-badge-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span>CSE Student</span>
+            </div>
+            <div class="floating-badge floating-badge-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Curious Builder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT ME SECTION -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>About Me</span>
+            </div>
+            <h2 class="section-title">Driven by <span class="gradient-text">Curiosity &amp; Purpose</span></h2>
+            <p class="section-subtitle">
+              A genuine look at who I am, where I am studying, and why I love the field of computer science.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="glass-card about-narrative">
+              <div>
+                <p class="about-p">
+                  Hello! I'm <strong>Vidyutha S.P</strong>, currently in my <strong>2nd year of B.E Computer Science Engineering</strong> at <strong>Sathyabama Institute of Science &amp; Technology, Chennai</strong>.
+                </p>
+                <p class="about-p">
+                  My journey into technology began with a simple curiosity: how do logical lines of code turn into systems that impact human lives? In college, that question has led me to explore core computing principles &mdash; from how memory and instructions work in low-level architecture, to designing intuitive data structures and experimenting with artificial intelligence.
+                </p>
+                <div class="about-quote">
+                  "I don't claim to be an industry veteran; I am a dedicated student who genuinely enjoys the learning process, wrestling with difficult algorithmic concepts, and turning fresh ideas into tangible projects."
+                </div>
+                <p class="about-p">
+                  I believe that the best way to understand technology is by getting hands-on &mdash; writing code, diagnosing why it broke, and continually refining solutions. When I'm not in classes, you'll find me exploring emerging AI trends, designing concept prototypes, and sharpening my core programming skills.
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card">
+              <div class="about-highlights-list">
+                <div class="highlight-box">
+                  <div class="highlight-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                  </div>
+                  <div>
+                    <h3 class="highlight-title">Academic Base</h3>
+                    <p class="highlight-desc">Sathyabama Institute of Science &amp; Technology, Chennai &bull; B.E CSE (2025–2029)</p>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <div class="highlight-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                  </div>
+                  <div>
+                    <h3 class="highlight-title">Hands-on Practice</h3>
+                    <p class="highlight-desc">Developing conceptual solutions for real-world scenarios, from regulatory compliance to nutrition.</p>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <div class="highlight-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  </div>
+                  <div>
+                    <h3 class="highlight-title">Growth Mindset</h3>
+                    <p class="highlight-desc">Committed to steady, daily progress in algorithms, clean code principles, and multidisciplinary skills.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Technical Skills</span>
+            </div>
+            <h2 class="section-title">Knowledge in <span class="gradient-text">Active Development</span></h2>
+            <p class="section-subtitle">
+              Technologies and computer science subjects I am actively studying, practicing, and building with.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <!-- Programming Languages -->
+            <div class="glass-card skill-category-card">
+              <div class="skill-card-header">
+                <div class="skill-card-title-group">
+                  <div class="category-icon icon-purple">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </div>
+                  <h3 class="skill-category-title">Programming</h3>
+                </div>
+                <span class="skill-category-badge">Foundations</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Core languages used for coursework, problem solving, and experimentation:</p>
+              <div class="skills-tags-wrap">
+                <div class="skill-pill">
+                  <span class="skill-pill-indicator"></span>
+                  <span>C</span>
+                </div>
+                <div class="skill-pill">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Java</span>
+                </div>
+                <div class="skill-pill">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Computer Science Fundamentals -->
+            <div class="glass-card skill-category-card">
+              <div class="skill-card-header">
+                <div class="skill-card-title-group">
+                  <div class="category-icon icon-blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                  </div>
+                  <h3 class="skill-category-title">Computer Science</h3>
+                </div>
+                <span class="skill-category-badge">Core Academic</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Theoretical and architectural fundamentals studied in my degree:</p>
+              <div class="skills-tags-wrap">
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Data Structures</span>
+                </div>
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Algorithms</span>
+                </div>
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Object-Oriented Programming (OOP)</span>
+                </div>
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Computer Architecture</span>
+                </div>
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Digital Logic</span>
+                </div>
+                <div class="skill-pill pill-blue">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Theory of Computation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technology Interests -->
+            <div class="glass-card skill-category-card">
+              <div class="skill-card-header">
+                <div class="skill-card-title-group">
+                  <div class="category-icon icon-pink">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  </div>
+                  <h3 class="skill-category-title">Technology Interests</h3>
+                </div>
+                <span class="skill-category-badge">Active Exploration</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Emerging fields and domains I read about and experiment with:</p>
+              <div class="skills-tags-wrap">
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>AI &amp; Machine Learning</span>
+                </div>
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Generative AI</span>
+                </div>
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Data Science</span>
+                </div>
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Cloud Computing</span>
+                </div>
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Cybersecurity</span>
+                </div>
+                <div class="skill-pill pill-pink">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Blockchain</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools & Workflow -->
+            <div class="glass-card skill-category-card">
+              <div class="skill-card-header">
+                <div class="skill-card-title-group">
+                  <div class="category-icon icon-green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                  </div>
+                  <h3 class="skill-category-title">Tools &amp; Design</h3>
+                </div>
+                <span class="skill-category-badge">Workflow</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Software and platforms I use for collaboration, version control, and visual design:</p>
+              <div class="skills-tags-wrap">
+                <div class="skill-pill pill-green">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Git</span>
+                </div>
+                <div class="skill-pill pill-green">
+                  <span class="skill-pill-indicator"></span>
+                  <span>GitHub</span>
+                </div>
+                <div class="skill-pill pill-green">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Figma</span>
+                </div>
+                <div class="skill-pill pill-green">
+                  <span class="skill-pill-indicator"></span>
+                  <span>Canva</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-note">
+            Note: Presented honestly as areas I am studying, applying, and building confidence in rather than claiming commercial mastery.
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Projects &amp; Concepts</span>
+            </div>
+            <h2 class="section-title">What I've Been <span class="gradient-text">Ideating &amp; Building</span></h2>
+            <p class="section-subtitle">
+              A curated look into my project concepts, engineering solutions, and creative problem solving.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project 1: Legal Metrology Scanner -->
+            <div class="glass-card project-card">
+              <div class="project-card-top">
+                <div class="project-badge-row">
+                  <span class="project-type-tag">AI &bull; Regulatory Tech</span>
+                  <span class="project-status status-concept">Concept &amp; Design</span>
+                </div>
+                <h3 class="project-title">Legal Metrology Packaged Commodities Compliance Scanner</h3>
+                <p class="project-desc">
+                  An AI-based concept utilizing Optical Character Recognition (OCR) and a statutory rules engine to inspect packaged consumer goods labels for mandatory declarations &mdash; such as MRP, manufacturer address, and regulatory details.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="project-tech-pill">Python</span>
+                  <span class="project-tech-pill">OCR Pipeline</span>
+                  <span class="project-tech-pill">Rules Engine</span>
+                  <span class="project-tech-pill">Computer Vision</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <button class="project-btn-detail" data-project-id="legal-metrology">
+                  <span>View Overview</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-icon" title="GitHub Repo Placeholder" aria-label="GitHub Repository">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 2: Muscle Munch -->
+            <div class="glass-card project-card">
+              <div class="project-card-top">
+                <div class="project-badge-row">
+                  <span class="project-type-tag">Consumer Product &bull; Nutrition</span>
+                  <span class="project-status status-concept">Prototype Ideation</span>
+                </div>
+                <h3 class="project-title">Muscle Munch</h3>
+                <p class="project-desc">
+                  A healthy, high-protein snack concept focused on Indian-style dietary habits and nutrition-conscious consumers. Combines macro-calculated formulations with accessible, culturally resonant flavors and transparent packaging.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="project-tech-pill">Product Design</span>
+                  <span class="project-tech-pill">Nutrition Analysis</span>
+                  <span class="project-tech-pill">Figma</span>
+                  <span class="project-tech-pill">Canva</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <button class="project-btn-detail" data-project-id="muscle-munch">
+                  <span>View Overview</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <div class="project-link-icon" title="Concept Stage" style="opacity: 0.6; cursor: default;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: More Coming Soon Placeholder -->
+            <div class="glass-card project-card card-coming-soon">
+              <div class="project-card-top">
+                <div class="project-badge-row">
+                  <span class="project-type-tag">Roadmap</span>
+                  <span class="project-status status-active">Active Learning</span>
+                </div>
+                <h3 class="project-title">More Projects Coming Soon</h3>
+                <p class="project-desc">
+                  My portfolio is an evolving workspace. As I progress through my 2nd year CSE curriculum and dive deeper into Data Structures, AI, and systems programming, new repositories and prototypes will be documented here.
+                </p>
+                <div class="coming-soon-graphic">
+                  <svg class="pulse-radar" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                    <path d="M12 6a6 6 0 0 1 6 6"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <button class="project-btn-detail" data-project-id="coming-soon">
+                  <span>View Future Scope</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <span class="mono" style="font-size: 0.78rem; color: var(--accent-purple-light);">v2.0 in progress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Academics</span>
+            </div>
+            <h2 class="section-title">Academic <span class="gradient-text">Foundation</span></h2>
+            <p class="section-subtitle">
+              Where my theoretical foundation and engineering mindset are being shaped.
+            </p>
+          </div>
+
+          <div class="education-wrapper">
+            <div class="glass-card edu-card">
+              <div class="edu-header">
+                <div class="edu-degree-group">
+                  <div class="edu-icon-badge">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                  </div>
+                  <div>
+                    <h3 class="edu-degree-title">B.E Computer Science Engineering</h3>
+                    <p class="edu-institution">Sathyabama Institute of Science &amp; Technology, Chennai</p>
+                  </div>
+                </div>
+                <div class="edu-meta">
+                  <span class="edu-timeline-pill">2025 &ndash; 2029</span>
+                  <span class="edu-current-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Current Status: 2nd Year</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="edu-details">
+                <div>
+                  <h4 class="edu-coursework-title">Key Core Coursework &amp; Topics</h4>
+                  <div class="edu-coursework-chips">
+                    <span class="coursework-chip">Data Structures</span>
+                    <span class="coursework-chip">Algorithms</span>
+                    <span class="coursework-chip">Object-Oriented Programming (OOP)</span>
+                    <span class="coursework-chip">Computer Architecture &amp; Organization</span>
+                    <span class="coursework-chip">Digital Logic &amp; Microprocessors</span>
+                    <span class="coursework-chip">Theory of Computation</span>
+                    <span class="coursework-chip">Discrete Mathematics</span>
+                    <span class="coursework-chip">Database Concepts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEARNING JOURNEY TIMELINE -->
+      <section id="journey" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Path of Progress</span>
+            </div>
+            <h2 class="section-title">My Learning <span class="gradient-text">Journey</span></h2>
+            <p class="section-subtitle">
+              An evolving timeline showing how I build computing depth step by step &mdash; from fundamental syntax to intelligent systems.
+            </p>
+          </div>
+
+          <div class="journey-timeline">
+            <!-- Step 1: C Programming -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>1. C Programming</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-done">Foundations Built</span>
+                </div>
+                <p class="timeline-desc">
+                  Learned procedural logic, control flow, pointers, memory allocation, and foundational problem solving from first principles.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2: Java -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>2. Java &amp; Object-Oriented Principles</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-done">Foundations Built</span>
+                </div>
+                <p class="timeline-desc">
+                  Explored encapsulation, inheritance, polymorphism, and abstraction to write clean, reusable, and modular code structures.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: Data Structures -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>3. Data Structures &amp; Algorithmic Thinking</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-current">In Deep Practice</span>
+                </div>
+                <p class="timeline-desc">
+                  Implementing arrays, linked lists, stacks, queues, trees, and hashing, focusing on understanding time and space complexity (Big-O).
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4: Computer Architecture -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>4. Computer Architecture &amp; Digital Logic</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-current">Academic Core</span>
+                </div>
+                <p class="timeline-desc">
+                  Unpacking logic gates, ALU operations, instruction cycles, memory hierarchies, and the physical underpinnings of computing systems.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 5: Theory of Computation -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>5. Theory of Computation</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-current">Current Focus</span>
+                </div>
+                <p class="timeline-desc">
+                  Exploring finite automata, regular grammars, context-free languages, and Turing machines to understand what can and cannot be computed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 6: AI / ML -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>6. AI &amp; Machine Learning</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-next">Active Exploration</span>
+                </div>
+                <p class="timeline-desc">
+                  Exploring machine learning workflows, data preprocessing, model evaluation, and foundational concepts behind generative AI and OCR.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 7: Cloud & Emerging Tech -->
+            <div class="timeline-step">
+              <div class="timeline-node">
+                <div class="timeline-node-inner"></div>
+              </div>
+              <div class="glass-card timeline-content-card">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">
+                    <span>7. Cloud &amp; Emerging Technologies</span>
+                  </h3>
+                  <span class="timeline-stage-tag stage-next">Next Horizon</span>
+                </div>
+                <p class="timeline-desc">
+                  Expanding understanding into cloud platforms, scalable deployment architectures, cybersecurity best practices, and decentralized networks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAREER VISION: LEARN. BUILD. LEAD. -->
+      <section id="vision" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Guiding Philosophy</span>
+            </div>
+            <h2 class="section-title"><span class="gradient-text">Learn. Build. Lead.</span></h2>
+            <p class="section-subtitle">
+              My vision for growing into a well-rounded technologist who creates real impact through software and leadership.
+            </p>
+          </div>
+
+          <div class="vision-cards-grid">
+            <!-- Pillar 1: Learn -->
+            <div class="glass-card vision-card">
+              <div class="vision-card-accent-line"></div>
+              <div class="vision-pillar-num">01</div>
+              <h3 class="vision-card-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                <span>Learn</span>
+              </h3>
+              <p class="vision-card-desc">
+                Continuously develop strong technical skills from first principles. Stay deeply curious about emerging paradigms &mdash; whether it's AI models, high-performance systems, or cleaner architecture &mdash; with a dedication to lifelong learning.
+              </p>
+            </div>
+
+            <!-- Pillar 2: Build -->
+            <div class="glass-card vision-card">
+              <div class="vision-card-accent-line"></div>
+              <div class="vision-pillar-num">02</div>
+              <h3 class="vision-card-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                <span>Build</span>
+              </h3>
+              <p class="vision-card-desc">
+                Transform theoretical knowledge into functional, well-crafted software. Solve authentic challenges through hands-on project creation, testing assumptions, writing maintainable code, and focusing on user-centric product utility.
+              </p>
+            </div>
+
+            <!-- Pillar 3: Lead -->
+            <div class="glass-card vision-card">
+              <div class="vision-card-accent-line"></div>
+              <div class="vision-pillar-num">03</div>
+              <h3 class="vision-card-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>Lead</span>
+              </h3>
+              <p class="vision-card-desc">
+                Cultivate clear communication, creative problem framing, and empathetic teamwork. The long-term goal is not just writing code in isolation, but collaborating effectively to build meaningful, ethical technology products.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Get in Touch</span>
+            </div>
+            <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+            <p class="section-subtitle">
+              Whether you have an internship opportunity, an interesting project idea, or just want to discuss technology &mdash; I would love to hear from you.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Contact Channels -->
+            <div class="glass-card contact-info-card">
+              <div>
+                <h3 class="contact-headline">Reach Out Directly</h3>
+                <p class="contact-intro">
+                  I check my email regularly and am always open to connecting with fellow students, developers, and mentors.
+                </p>
+              </div>
+
+              <div class="contact-channel-list">
+                <!-- Email Item -->
+                <div class="contact-channel-item">
+                  <div class="contact-channel-left">
+                    <div class="contact-channel-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                      <div class="contact-channel-label">Email</div>
+                      <a href="mailto:vidyutha09@gmail.com" class="contact-channel-val">vidyutha09@gmail.com</a>
+                    </div>
+                  </div>
+                  <button id="btn-copy-email" class="copy-btn" title="Copy email address" aria-label="Copy email address">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  </button>
+                </div>
+
+                <!-- LinkedIn Item -->
+                <div class="contact-channel-item">
+                  <div class="contact-channel-left">
+                    <div class="contact-channel-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </div>
+                    <div>
+                      <div class="contact-channel-label">LinkedIn</div>
+                      <a href="https://www.linkedin.com/in/vidyutha?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="contact-channel-val">linkedin.com/in/vidyutha</a>
+                    </div>
+                  </div>
+                  <a href="https://www.linkedin.com/in/vidyutha?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="copy-btn" aria-label="Visit LinkedIn Profile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
+
+                <!-- GitHub Item -->
+                <div class="contact-channel-item">
+                  <div class="contact-channel-left">
+                    <div class="contact-channel-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-channel-label">GitHub</div>
+                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-channel-val">github.com</a>
+                    </div>
+                  </div>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="copy-btn" aria-label="Visit GitHub Profile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Message Form -->
+            <div class="glass-card contact-form-wrap">
+              <form id="portfolio-contact-form">
+                <div class="form-group">
+                  <label for="form-name" class="form-label">Your Name</label>
+                  <input type="text" id="form-name" class="form-input" placeholder="e.g. Maya Sharma" required>
+                </div>
+                <div class="form-group">
+                  <label for="form-email" class="form-label">Your Email</label>
+                  <input type="email" id="form-email" class="form-input" placeholder="e.g. maya@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="form-subject" class="form-label">Subject</label>
+                  <input type="text" id="form-subject" class="form-input" placeholder="e.g. Project Discussion / Opportunity">
+                </div>
+                <div class="form-group">
+                  <label for="form-message" class="form-label">Message</label>
+                  <textarea id="form-message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  Send Message
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-brand">Vidyutha S.P</div>
+            <div class="footer-quote">Building my way into the world of technology &bull; 2nd Year B.E CSE</div>
+          </div>
+          <div class="footer-links">
+            <a href="#about" class="footer-link">About</a>
+            <a href="#skills" class="footer-link">Skills</a>
+            <a href="#projects" class="footer-link">Projects</a>
+            <a href="#education" class="footer-link">Education</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; 2025&ndash;2026 Vidyutha S.P. Crafted with a modern dark theme and clean web standards.</div>
+          <a href="#hero" id="btn-back-to-top" class="btn-top">
+            <span>Back to top</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <span class="toast-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </span>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <!-- Project Details Modal -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+        <span id="modal-tag" class="project-type-tag">Category</span>
+        <span id="modal-status" class="project-status status-concept">Status</span>
+      </div>
+      <h3 id="modal-title" style="font-size: 1.45rem; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3;">Project Title</h3>
+      <div id="modal-content" class="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
