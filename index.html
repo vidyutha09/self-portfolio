@@ -821,26 +821,34 @@
 
             <!-- Contact Message Form -->
             <div class="glass-card contact-form-wrap">
-              <form id="portfolio-contact-form">
+              <!-- Inline Status Alert for Success / Error -->
+              <div id="form-status" class="form-status-alert" style="display: none;" role="alert"></div>
+
+              <form id="portfolio-contact-form" novalidate>
+                <!-- Honeypot field for bot spam prevention -->
+                <input type="text" name="_honey" id="form-honey" style="display:none" tabindex="-1" autocomplete="off">
+
                 <div class="form-group">
                   <label for="form-name" class="form-label">Your Name</label>
-                  <input type="text" id="form-name" class="form-input" placeholder="e.g. Maya Sharma" required>
+                  <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Maya Sharma" required autocomplete="name">
+                  <span id="name-error" class="field-error-text" style="display: none;"></span>
                 </div>
+
                 <div class="form-group">
                   <label for="form-email" class="form-label">Your Email</label>
-                  <input type="email" id="form-email" class="form-input" placeholder="e.g. maya@example.com" required>
+                  <input type="email" id="form-email" name="email" class="form-input" placeholder="e.g. maya@example.com" required autocomplete="email">
+                  <span id="email-error" class="field-error-text" style="display: none;"></span>
                 </div>
-                <div class="form-group">
-                  <label for="form-subject" class="form-label">Subject</label>
-                  <input type="text" id="form-subject" class="form-input" placeholder="e.g. Project Discussion / Opportunity">
-                </div>
+
                 <div class="form-group">
                   <label for="form-message" class="form-label">Message</label>
-                  <textarea id="form-message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+                  <textarea id="form-message" name="message" class="form-textarea" placeholder="Write your message here..." required rows="4"></textarea>
+                  <span id="message-error" class="field-error-text" style="display: none;"></span>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                  Send Message
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+
+                <button type="submit" id="btn-submit-contact" class="btn btn-primary" style="width: 100%;">
+                  <span id="btn-text">Send Message</span>
+                  <svg id="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
               </form>
             </div>

@@ -248,30 +248,202 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Contact Form Submission Handler ---
   const contactForm = document.getElementById('portfolio-contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const nameInput = document.getElementById('form-name');
+    const emailInput = document.getElementById('form-email');
+    const messageInput = document.getElementById('form-message');
+    const honeyInput = document.getElementById('form-honey');
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const messageError = document.getElementById('message-error');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('btn-submit-contact');
+
+    // Email validation regex (standard RFC 5322 compliant pattern)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Helper: Clear inline errors when user types
+    const clearError = (input, errorElement) => {
+      input.classList.remove('invalid');
+      if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+      }
+    };
+
+    nameInput.addEventListener('input', () => clearError(nameInput, nameError));
+    emailInput.addEventListener('input', () => clearError(emailInput, emailError));
+    messageInput.addEventListener('input', () => clearError(messageInput, messageError));
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('form-name').value.trim();
-      const email = document.getElementById('form-email').value.trim();
-      const subject = document.getElementById('form-subject').value.trim() || 'Portfolio Inquiry';
-      const message = document.getElementById('form-message').value.trim();
+      // Clear previous status
+      formStatus.style.display = 'none';
+      formStatus.className = 'form-status-alert';
+      formStatus.innerHTML = '';
 
-      if (!name || !email || !message) {
-        showToast('Please fill in your name, email, and message.');
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+      const honey = honeyInput ? honeyInput.value : '';
+
+      let hasError = false;
+
+      // Validate Name
+      if (!name) {
+        nameInput.classList.add('invalid');
+        nameError.textContent = 'Please enter your name.';
+        nameError.style.display = 'block';
+        hasError = true;
+      } else if (name.length < 2) {
+        nameInput.classList.add('invalid');
+        nameError.textContent = 'Name must be at least 2 characters.';
+        nameError.style.display = 'block';
+        hasError = true;
+      }
+
+      // Validate Email
+      if (!email) {
+        emailInput.classList.add('invalid');
+        emailError.textContent = 'Please enter your email address.';
+        emailError.style.display = 'block';
+        hasError = true;
+      } else if (!emailRegex.test(email)) {
+        emailInput.classList.add('invalid');
+        emailError.textContent = 'Please enter a valid email address (e.g. name@example.com).';
+        emailError.style.display = 'block';
+        hasError = true;
+      }
+
+      // Validate Message
+      if (!message) {
+        messageInput.classList.add('invalid');
+        messageError.textContent = 'Please enter a message.';
+        messageError.style.display = 'block';
+        hasError = true;
+      } else if (message.length < 5) {
+        messageInput.classList.add('invalid');
+        messageError.textContent = 'Message is too short (at least 5 characters).';
+        messageError.style.display = 'block';
+        hasError = true;
+      }
+
+      // If invalid, focus on the first invalid field
+      if (hasError) {
+        if (!name) nameInput.focus();
+        else if (!email || !emailRegex.test(email)) emailInput.focus();
+        else messageInput.focus();
         return;
       }
 
-      // Compose mailto link so user can send immediately
-      const mailtoUrl = `mailto:vidyutha09@gmail.com?subject=${encodeURIComponent(subject + ' - from ' + name)}&body=${encodeURIComponent("Sender: " + name + " (" + email + ")\n\n" + message)}`;
-      
-      showToast('Opening email client to send message to Vidyutha...');
-      
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
+      // Honeypot spam trap
+      if (honey) {
+        formStatus.className = 'form-status-alert success';
+        formStatus.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <span>Thanks for reaching out! Your message has been sent successfully. I'll get back to you soon.</span>
+        `;
+        formStatus.style.display = 'flex';
         contactForm.reset();
-      }, 700);
+        return;
+      }
+
+      // Set button to loading state
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="btn-spinner" aria-hidden="true"></span>
+        <span>Sending Message...</span>
+      `;
+
+      try {
+        let responseSuccess = false;
+        const payload = {
+          name: name,
+          email: email,
+          message: message,
+          _subject: `New Portfolio Message from ${name}`
+        };
+
+        // Try primary Vercel Serverless Function first (/api/contact)
+        try {
+          const apiResponse = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (apiResponse.ok) {
+            const result = await apiResponse.json();
+            if (result.success !== false) {
+              responseSuccess = true;
+            }
+          } else if (apiResponse.status === 404) {
+            // If /api/contact is not hosted (e.g. static local preview), fallback below
+            responseSuccess = false;
+          } else {
+            const errData = await apiResponse.json().catch(() => ({}));
+            throw new Error(errData.message || 'Server responded with an error.');
+          }
+        } catch (apiErr) {
+          // If network failed or /api/contact is unavailable, fallback to FormSubmit endpoint
+          console.warn('API route unavailable or errored, attempting direct form fallback...', apiErr);
+          responseSuccess = false;
+        }
+
+        // Direct Service Fallback (handles static preview or if serverless function is not active)
+        if (!responseSuccess) {
+          const serviceResponse = await fetch('https://formsubmit.co/ajax/vidyutha09@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const serviceData = await serviceResponse.json().catch(() => ({}));
+          if (serviceResponse.ok && serviceData.success !== 'false') {
+            responseSuccess = true;
+          } else {
+            throw new Error(serviceData.message || 'Failed to submit form.');
+          }
+        }
+
+        if (responseSuccess) {
+          // Show required success message
+          const successText = "Thanks for reaching out! Your message has been sent successfully. I'll get back to you soon.";
+          formStatus.className = 'form-status-alert success';
+          formStatus.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>${successText}</span>
+          `;
+          formStatus.style.display = 'flex';
+          showToast(successText, 5000);
+          contactForm.reset();
+        } else {
+          throw new Error('Could not verify submission.');
+        }
+
+      } catch (err) {
+        console.error('Contact submission error:', err);
+        formStatus.className = 'form-status-alert error';
+        formStatus.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span>Oops! We couldn't send your message right now. Please try again or email me directly at <a href="mailto:vidyutha09@gmail.com" style="text-decoration: underline; color: #fff;">vidyutha09@gmail.com</a>.</span>
+        `;
+        formStatus.style.display = 'flex';
+        showToast('Submission failed. Please check your connection.', 4500);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+      }
     });
   }
+
 
   // --- Smooth Back to Top Button ---
   const backToTopBtn = document.getElementById('btn-back-to-top');
